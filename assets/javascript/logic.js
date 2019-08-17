@@ -49,13 +49,17 @@ var correct = 0
 
 var total = questions.length
 
-function end() {
+var result
+
+function reset() {
 
     document.getElementById("big-words").innerHTML = "Welcome to:";
 
         document.getElementById("top").innerHTML = "My babez's quiz!";
 
-        document.getElementById("middle").innerHTML = "correct + "/" + total";
+        document.getElementById("middle").innerHTML = "";
+
+        document.getElementById("bottom").innerHTML = "";
 
         document.getElementById("button").style.display = "block";
 
@@ -68,6 +72,45 @@ timerOut = false;
 guess = ""
 
 correct = 0
+
+}
+
+function end() {
+    document.getElementById("big-words").innerHTML = "";
+
+        document.getElementById("top").innerHTML = "";
+
+        document.getElementById("middle").innerHTML = "Thanks for playing!";
+
+        if ((correct/total) >= 0.6) {
+            result = "You win"
+        }
+        else {
+            result = "You lose"
+        }
+
+        document.getElementById("bottom").innerHTML = result + "<br>" + correct + "/" + total;
+
+ second = 0;
+
+document.getElementById("big-words").innerHTML = "<div id='outerBar'>End Game<div id='loadBar'></div></div>";
+
+
+        secs = setInterval(function(){
+            second++ //incs second
+
+            newBar = (500 - (3.70 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
+
+            document.getElementById("loadBar").style.width = newBar + "px" ; //changes the width
+
+        }, (0.036225 * 1000));
+
+        loadBar = setTimeout(function(){
+            clearInterval(secs)
+            document.getElementById("loadBar").style.width = 500 + "px"
+            second = 0;
+            reset()
+    }, (5 * 1000))
 
 }
 
@@ -157,6 +200,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
                     clearInterval(secs)
                     second = 0;
                     timerOut = true
+                    guess = "None answered!"
                     loading()
             }, (30 * 1000))
         //--------------------------
@@ -237,9 +281,10 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
     }
     else {
-        guess = "TOO SLOW!"
+        guess = "None answered!"
     }
     clearInterval(secs)
+    clearTimeout(loadBar)
                     second = 0;
                     timerOut = true
     loading()
