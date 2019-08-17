@@ -3,16 +3,16 @@ var questions = [
     {
         prompt: "What is my babez's favorite food?",
         answers: [
-            "Barbeque ribs", "Alfredo pasta", "Pepperoni pizza", "Clam chowder"
+            "barbeque ribs", "alfredo pasta", "pepperoni pizza", "clam chowder"
         ],
-        correct: "Alfredo pasta",
+        correct: "alfredo pasta",
     },
     {
         prompt: "What is my babez's favorite color?",
         answers: [
-            "Crimson red", "royal blue", "sky blue", "Mint green"
+            "crimson red", "royal blue", "sky blue", "mint green"
         ],
-        correct: "Mint green",
+        correct: "mint green",
     },
     {
         prompt: "What is my babez's favorite animal?",
@@ -22,14 +22,18 @@ var questions = [
         correct: "cat",
     },
     {
-        prompt: "",
-        answers: "",
-        correct: "",
+        prompt: "Where was my babez born?",
+        answers: [
+            "canada", "texas", "north carolina", "florida"
+        ],
+        correct: "florida", //what a weird state
     },
     {
-        prompt: "",
-        answers: "",
-        correct: "",
+        prompt: "What is my babez's favorite candy?",
+        answers: [
+            "gummy bears", "hershey's kisses", "swedish fish", "reese's cups"
+        ],
+        correct: "gummy bears",
     },
 ] //End array "questions"
 
@@ -45,9 +49,41 @@ var correct = 0
 
 var total = questions.length
 
+function end() {
+
+    document.getElementById("big-words").innerHTML = "Welcome to:";
+
+        document.getElementById("top").innerHTML = "My babez's quiz!";
+
+        document.getElementById("middle").innerHTML = "correct + "/" + total";
+
+        document.getElementById("button").style.display = "block";
+
+        i=0;
+
+qNum=0;
+
+timerOut = false;
+
+guess = ""
+
+correct = 0
+
+}
+
 function loading() { // loading screen before questions
 
     qNum++
+
+    if (qNum > total) {
+        alert("done")
+        //end page
+        end()
+        
+            }
+    else {
+
+        
 
     document.getElementById("big-words").innerHTML = "";
 
@@ -68,11 +104,11 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
         var secs = setInterval(function(){
             second++ //incs second
 
-            newBar = (500 - (3.125 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
+            newBar = (500 - (3.70 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
 
             document.getElementById("loadBar").style.width = newBar + "px" ; //changes the width
 
-        }, (0.0625 * 1000));
+        }, (0.036225 * 1000));
 
         var loadBar = setTimeout(function(){
             console.log("Time's up!")
@@ -80,10 +116,10 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             document.getElementById("loadBar").style.width = 500 + "px"
             second = 0;
             next()
-    }, (2 * 1000))
+    }, (5 * 1000))
 
 
-
+    }
 }
 
 
@@ -159,12 +195,10 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
     if (($("#zero")[0].checked)) {
 
         if (a[0] === total.correct) {
-            alert("correct")
             correct++
             guess = "CORRECT!!!!"
         }
         else {
-            alert("wrong")
             guess = "WRONG!"
         }
 
@@ -172,12 +206,10 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
     else if (($("#one")[0].checked)) {
 
         if (a[1] === total.correct) {
-            alert("correct")
             correct++
             guess = "CORRECT!!!!"
         }
         else {
-            alert("wrong")
             guess = "WRONG!"
         }
 
@@ -185,12 +217,10 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
     else if (($("#two")[0].checked)) {
 
         if (a[2] === total.correct) {
-            alert("correct")
             correct++
             guess = "CORRECT!!!!"
         }
         else {
-            alert("wrong")
             guess = "WRONG!"
         }
 
@@ -198,15 +228,16 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
     else if (($("#three")[0].checked)) {
 
         if (a[3] === total.correct) {
-            alert("correct")
             correct++
             guess = "CORRECT!!!!"
         }
         else {
-            alert("wrong")
             guess = "WRONG!"
         }
 
+    }
+    else {
+        guess = "TOO SLOW!"
     }
     clearInterval(secs)
                     second = 0;
