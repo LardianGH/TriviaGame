@@ -8,16 +8,18 @@ var questions = [
         correct: "Alfredo pasta",
     },
     {
-        prompt: "What is my babez's favoritre color?",
+        prompt: "What is my babez's favorite color?",
         answers: [
             "Crimson red", "royal blue", "sky blue", "Mint green"
         ],
         correct: "Mint green",
     },
     {
-        prompt: "",
-        answers: "",
-        correct: "",
+        prompt: "What is my babez's favorite animal?",
+        answers: [
+            "cat", "dog", "hamster", "goldfish"
+        ],
+        correct: "cat",
     },
     {
         prompt: "",
@@ -72,7 +74,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             document.getElementById("loadBar").style.width = 500 + "px"
             second = 0;
             next()
-    }, (10 * 1000))
+    }, (2 * 1000))
 
 
 
@@ -115,23 +117,66 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             }, (30 * 1000))
         //--------------------------
 
-        var a = questions[i].answers
+        var total = questions[i]
 
-        document.getElementById("middle").innerHTML = "<form>" + "<input type='radio' id='rad1' name='q' value='0'> " + a[0] + "</input>" + "<br>" + "<input type='radio' id='rad2' name='q' value='1'> " + a[1] + "</input>" + "<br>" + "<input type='radio' id='rad3' name='q' value='3'> " + a[2] + "</input>" + "<br>" + "<input type='radio' id='rad4' name='q' value='4'> " + a[3] + "</input>";
+        var a = total.answers
 
-        document.getElementById("bottom").innerHTML = "<input id='sub' type='submit' value='submit'>" + "</form>"
+        var compRad = []
+
+        var idents = ["zero", "one", "two", "three"]
+
+        for (q=0; q<=3; q++) {
+
+            compRad[q] = "<input type='radio' name='ans' id='" + idents[q] + "'> " + a[q] + "</input>"
+
+            console.log(idents[q])
+            
+        }
+
+
+        document.getElementById("middle").innerHTML = "<form name='rads'>" +  compRad[0] + "<br>" +  compRad[1] + "<br>" +  compRad[2] + "<br>" +  compRad[3] + "<br>" + "<input id='sub' type='submit' value='submit'>" + "</form>"
+
+        console.log($("#one")[0].checked)
+
 
         console.log(i)
 
-        console.log(questions[i].prompt)
+        
 
         i++
 
-        var val = document.getElementById("rad").value;
-
-        document.getElementById("sub").addEventListener("click", function(){ //whenever the submit button is clicked
+        document.getElementById("sub").addEventListener("click", function(event){ //whenever the submit button is clicked
+            event.preventDefault();
 //take the value or (text?) of radiobutton and compare it to answer
-            alert(rad.text)
+    if (($("#zero")[0].checked)) {
+
+        if (a[0] === total.correct) {
+            alert("correct")
+        }
+
+    }
+    else if (($("#one")[0].checked)) {
+
+        if (a[1] === total.correct) {
+            alert("correct")
+        }
+
+    }
+    else if (($("#two")[0].checked)) {
+
+        if (a[2] === total.correct) {
+            alert("correct")
+        }
+
+    }
+    else if (($("#three")[0].checked)) {
+
+        if (a[3] === total.correct) {
+            alert("correct")
+        }
+
+    }
+    
 
         });
 
