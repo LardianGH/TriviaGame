@@ -39,6 +39,12 @@ var qNum=0;
 
 var timerOut = false;
 
+var guess = ""
+
+var correct = 0
+
+var total = questions.length
+
 function loading() { // loading screen before questions
 
     qNum++
@@ -51,7 +57,7 @@ function loading() { // loading screen before questions
 
         console.log(qNum)
 
-        document.getElementById("bottom").innerHTML = "";
+        document.getElementById("bottom").innerHTML = guess + "<br>" + correct + "/" + total;
 
 
 var second = 0;
@@ -85,6 +91,8 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
 
         document.getElementById("big-words").innerHTML = questions[i].prompt;
+
+        document.getElementById("bottom").innerHTML = ""
 
         //--------------------------
         second = 0;
@@ -152,6 +160,12 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
         if (a[0] === total.correct) {
             alert("correct")
+            correct++
+            guess = "CORRECT!!!!"
+        }
+        else {
+            alert("wrong")
+            guess = "WRONG!"
         }
 
     }
@@ -159,6 +173,12 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
         if (a[1] === total.correct) {
             alert("correct")
+            correct++
+            guess = "CORRECT!!!!"
+        }
+        else {
+            alert("wrong")
+            guess = "WRONG!"
         }
 
     }
@@ -166,6 +186,12 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
         if (a[2] === total.correct) {
             alert("correct")
+            correct++
+            guess = "CORRECT!!!!"
+        }
+        else {
+            alert("wrong")
+            guess = "WRONG!"
         }
 
     }
@@ -173,10 +199,19 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
         if (a[3] === total.correct) {
             alert("correct")
+            correct++
+            guess = "CORRECT!!!!"
+        }
+        else {
+            alert("wrong")
+            guess = "WRONG!"
         }
 
     }
-    
+    clearInterval(secs)
+                    second = 0;
+                    timerOut = true
+    loading()
 
         });
 
