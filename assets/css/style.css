@@ -1,0 +1,78 @@
+body {
+    background-color: yellow;
+}
+
+#big-words {
+    margin-top: 20px;
+    font-size: 50px;
+    text-align: center;
+}
+
+#top {
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#middle {
+    margin-top: 50px;
+    font-size: 35px;
+    text-align: center;
+    line-height: 80px;
+}
+
+#bottom {
+    margin-top: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+#button {
+    height: 50px;
+    width: 50px;
+    color: white;
+    background-color: black;
+    margin-left: 50%;
+    margin-right: auto;
+}
+
+#outerBar {
+    width: 500px;
+    height: 80px;
+    margin-left: 33%;
+    margin-right: auto;
+    z-index: 3;
+    position: absolute;
+    background-color: gray;
+}
+
+#loadBar {
+    width: 500px;
+    height: 80px;
+    background-color: crimson;
+    opacity: 0.5;
+    bottom: 58px;
+    z-index: 5;
+    position: relative;
+}
+
+#outerBar2 {
+    width: 800px;
+    height: 60px;
+    font-size: 60px;
+    margin-left: 25%;
+    margin-right: auto;
+    z-index: 3;
+    position: relative;
+    background-color: gray;
+}
+
+#timerBar {
+    width: 800px;
+    height: 60px;
+    background-color: crimson;
+    opacity: 0.5;
+    bottom: 70px;
+    z-index: 5;
+    position: relative;
+}
