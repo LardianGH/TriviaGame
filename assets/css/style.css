@@ -2,6 +2,15 @@ body {
     background-color: yellow;
 }
 
+.page {
+    background-color: white;
+    width: 800px;
+    height: 670px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
 #big-words {
     margin-top: 20px;
     font-size: 50px;
@@ -32,14 +41,16 @@ body {
     width: 50px;
     color: white;
     background-color: black;
+    margin-top: 200px;
     margin-left: 48%;
     margin-right: auto;
+    transform: scale(2);
 }
 
 #outerBar {
     width: 500px;
     height: 80px;
-    margin-left: 33%;
+    margin-left: 150px;
     margin-right: auto;
     z-index: 3;
     position: absolute;
@@ -60,7 +71,7 @@ body {
     width: 800px;
     height: 60px;
     font-size: 60px;
-    margin-left: 25%;
+    
     margin-right: auto;
     z-index: 3;
     position: relative;
@@ -75,4 +86,12 @@ body {
     bottom: 70px;
     z-index: 5;
     position: relative;
+}
+
+.ans {
+    transform: scale(2);
+}
+
+#sub {
+    transform: scale(2);
 }

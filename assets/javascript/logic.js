@@ -78,7 +78,7 @@ correct = 0
 function end() {
     document.getElementById("big-words").innerHTML = "";
 
-        document.getElementById("top").innerHTML = "";
+        document.getElementById("top").innerHTML = "i";
 
         document.getElementById("middle").innerHTML = "Thanks for playing!";
 
@@ -93,7 +93,7 @@ function end() {
 
  second = 0;
 
-document.getElementById("big-words").innerHTML = "<div id='outerBar'>End Game<div id='loadBar'></div></div>";
+document.getElementById("big-words").innerHTML = "<div id='outerBar'>Game Over<div id='loadBar'></div></div>";
 
 
         secs = setInterval(function(){
@@ -119,7 +119,6 @@ function loading() { // loading screen before questions
     qNum++
 
     if (qNum > total) {
-        alert("done")
         //end page
         end()
         
@@ -215,7 +214,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
         for (q=0; q<=3; q++) {
 
-            compRad[q] = "<input type='radio' name='ans' id='" + idents[q] + "'> " + a[q] + "</input>"
+            compRad[q] = "<input type='radio' class='ans' name='ans' id='" + idents[q] + "'> " + a[q] + "</input>"
 
             console.log(idents[q])
             
