@@ -47,7 +47,7 @@ var questions = [
         answers: [
             "kylo", "vader", "rey", "ginger"
         ],
-        correct: "all", //babez can not pick just one
+        correct: "babez can not pick just one", //all
     },
     {
         prompt: "What is our anniversary?",
@@ -234,7 +234,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
                     clearInterval(secs)
                     second = 0;
                     timerOut = true
-                    guess = "None answered!"
+                    guess = "None answered!" + "<br>" + "Correct answer: " + total.correct
                     loading()
             }, (15 * 1000))
         //--------------------------
@@ -270,14 +270,14 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
         document.getElementById("sub").addEventListener("click", function(event){ //whenever the submit button is clicked
             event.preventDefault();
 //take the value or (text?) of radiobutton and compare it to answer
-    if (($("#zero")[0].checked)) {
+    if (($("#zero")[0].checked)) { //would set up a for loop, but $("#" + idents["iterator"]) doesn't seem to work.
 
         if (a[0] === total.correct) {
             correct++
             guess = "CORRECT!!!!"
         }
         else {
-            guess = "WRONG!"
+            guess = "WRONG!" + "<br>" + "Correct answer: " + total.correct
         }
 
     }
@@ -288,7 +288,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             guess = "CORRECT!!!!"
         }
         else {
-            guess = "WRONG!"
+            guess = "WRONG!" + "<br>" + "Correct answer: " + total.correct
         }
 
     }
@@ -299,7 +299,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             guess = "CORRECT!!!!"
         }
         else {
-            guess = "WRONG!"
+            guess = "WRONG!" + "<br>" + "Correct answer: " + total.correct
         }
 
     }
@@ -310,12 +310,12 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             guess = "CORRECT!!!!"
         }
         else {
-            guess = "WRONG!"
+            guess = "WRONG!" + "<br>" + "Correct answer: " + total.correct
         }
 
     }
     else {
-        guess = "None answered!"
+        e.preventDefault();
     }
     clearInterval(secs)
     clearTimeout(loadBar)
