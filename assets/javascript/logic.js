@@ -35,6 +35,41 @@ var questions = [
         ],
         correct: "gummy bears",
     },
+    {
+        prompt: "When is my babez's birthday?",
+        answers: [
+            "october 4th", "january 30th", "november 27th", "july 16th"
+        ],
+        correct: "november 27th",
+    },
+    {
+        prompt: "What is my babez's favorite kitty named?",
+        answers: [
+            "kylo", "vader", "rey", "ginger"
+        ],
+        correct: "all", //babez can not pick just one
+    },
+    {
+        prompt: "What is our anniversary?",
+        answers: [
+            "june 5th", "december 25th", "febuary 18th", "january 30th"
+        ],
+        correct: "january 30th",
+    },
+    {
+        prompt: "When was our first kiss?",
+        answers: [
+            "febuary 16th", "may 2nd", "febuary 19th", "march 6th"
+        ],
+        correct: "febuary 19th",
+    },
+    {
+        prompt: "What color is my babez hair?",
+        answers: [
+            "blonde", "brown", "lavender", "yes"
+        ],
+        correct: "yes",
+    },
 ] //End array "questions"
 
 var i=0;
@@ -89,7 +124,7 @@ function end() {
             result = "You lose"
         }
 
-        document.getElementById("bottom").innerHTML = result + "<br>" + correct + "/" + total;
+        document.getElementById("bottom").innerHTML = correct + "/" + total + "<br>" + result;
 
  second = 0;
 
