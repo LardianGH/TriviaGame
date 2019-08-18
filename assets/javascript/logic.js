@@ -146,7 +146,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
         var secs = setInterval(function(){
             second++ //incs second
 
-            newBar = (500 - (3.70 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
+            newBar = (500 - (7.40 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
 
             document.getElementById("loadBar").style.width = newBar + "px" ; //changes the width
 
@@ -158,7 +158,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
             document.getElementById("loadBar").style.width = 500 + "px"
             second = 0;
             next()
-    }, (5 * 1000))
+    }, (2.5 * 1000))
 
 
     }
@@ -175,7 +175,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
         //--------------------------
         second = 0;
 
-        timeLeft = 30
+        timeLeft = 15
 
         document.getElementById("top").innerHTML = "<div id='outerBar2'>" + timeLeft + "<div id='timerBar'></div></div>";
         
@@ -188,7 +188,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
                     document.getElementById("top").innerHTML = "<div id='outerBar2'>" + timeLeft + "<div id='timerBar'></div></div>";
         
-                    newBar = (800 - (26.667 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
+                    newBar = (800 - (53.334 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
         
                     document.getElementById("timerBar").style.width = newBar + "px" ; //changes the width
         
@@ -201,7 +201,7 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
                     timerOut = true
                     guess = "None answered!"
                     loading()
-            }, (30 * 1000))
+            }, (15 * 1000))
         //--------------------------
 
         var total = questions[i]
