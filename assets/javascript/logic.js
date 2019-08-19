@@ -1,5 +1,5 @@
 
-var questions = [
+var questions = [ //This array stores all the questions, answers, and the respective correct answer to those questions
     {
         prompt: "What is my babez's favorite food?",
         answers: [
@@ -47,7 +47,7 @@ var questions = [
         answers: [
             "kylo", "vader", "rey", "ginger"
         ],
-        correct: "babez can not pick just one", //all
+        correct: "babez can not pick just one", //all (Yes this one is intentionally unwinnable)
     },
     {
         prompt: "What is our anniversary?",
@@ -76,8 +76,6 @@ var i=0;
 
 var qNum=0;
 
-var timerOut = false;
-
 var guess = ""
 
 var correct = 0
@@ -86,7 +84,7 @@ var total = questions.length
 
 var result
 
-function reset() {
+function reset() { //Resets everything to look like the initial html
 
     document.getElementById("big-words").innerHTML = "Welcome to:";
 
@@ -100,9 +98,7 @@ function reset() {
 
         i=0;
 
-qNum=0;
-
-timerOut = false;
+qNum=0; //Whichever number question the player is on.
 
 guess = ""
 
@@ -136,16 +132,16 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Game Over<d
 
             newBar = (500 - (3.70 * second)) //takes inital width of loadBar and subtracts 1/20 from it or (25 from 500)
 
-            document.getElementById("loadBar").style.width = newBar + "px" ; //changes the width
+            document.getElementById("loadBar").style.width = newBar + "px" ; //changes the width of loadbar
 
         }, (0.036225 * 1000));
 
         loadBar = setTimeout(function(){
-            clearInterval(secs)
-            document.getElementById("loadBar").style.width = 500 + "px"
+            clearInterval(secs) //Stops the interval
+            document.getElementById("loadBar").style.width = 500 + "px" //resets the loadbar for next time
             second = 0;
             reset()
-    }, (5 * 1000))
+    }, (5 * 1000)) //5 secs
 
 }
 
@@ -153,8 +149,8 @@ function loading() { // loading screen before questions
 
     qNum++
 
-    if (qNum > total) {
-        //end page
+    if (qNum > total) { //If all questions are answered
+        //go to the end page
         end()
         
             }
@@ -164,7 +160,7 @@ function loading() { // loading screen before questions
 
     document.getElementById("big-words").innerHTML = "";
 
-        document.getElementById("top").innerHTML = "i";
+        document.getElementById("top").innerHTML = "i"; //placeholder so the loadingbar doesn't overlap what's beneath it
 
         document.getElementById("middle").innerHTML = "Question number " + qNum;
 
@@ -233,7 +229,6 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
                     console.log("Time's up!")
                     clearInterval(secs)
                     second = 0;
-                    timerOut = true
                     guess = "None answered!" + "<br>" + "Correct answer: " + total.correct
                     loading()
             }, (15 * 1000))
@@ -249,14 +244,14 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
         for (q=0; q<=3; q++) {
 
-            compRad[q] = "<input type='radio' class='ans' name='ans' id='" + idents[q] + "'> " + a[q] + "</input>"
+            compRad[q] = "<input type='radio' class='ans' name='ans' id='" + idents[q] + "'> " + a[q] + "</input>" //assigns a rad button to a spot in an array
 
             console.log(idents[q])
             
         }
 
-
-        document.getElementById("middle").innerHTML = "<form name='rads'>" +  compRad[0] + "<br>" +  compRad[1] + "<br>" +  compRad[2] + "<br>" +  compRad[3] + "<br>" + "<input id='sub' type='submit' value='submit'>" + "</form>"
+        //applies the radbuttons
+        document.getElementById("middle").innerHTML = "<form>" +  compRad[0] + "<br>" +  compRad[1] + "<br>" +  compRad[2] + "<br>" +  compRad[3] + "<br>" + "<input id='sub' type='submit' value='submit'>" + "</form>"
 
         console.log($("#one")[0].checked)
 
@@ -315,13 +310,12 @@ document.getElementById("big-words").innerHTML = "<div id='outerBar'>Loading<div
 
     }
     else {
-        e.preventDefault();
+        e.preventDefault(); //Stops the form from reseting
     }
     clearInterval(secs)
     clearTimeout(loadBar)
-                    second = 0;
-                    timerOut = true
-    loading()
+    second = 0;
+    loading() //calls the loading screen
 
         });
 
